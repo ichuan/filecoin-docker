@@ -12,5 +12,6 @@ COPY ./entrypoint.sh /opt/
 RUN chmod +x /opt/entrypoint.sh
 # cleanup
 RUN apt autoremove -y && rm -rf /var/lib/apt/lists/*
+RUN rm -f /opt/coin/lotus-miner /opt/coin/lotus-worker
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
