@@ -1,7 +1,7 @@
 FROM rust:latest AS builder
 WORKDIR /opt
-RUN git clone https://github.com/Zondax/filecoin-signing-tools && cd filecoin-signing-tools
-RUN cargo build --release --manifest-path service/Cargo.toml
+RUN git clone https://github.com/Zondax/filecoin-signing-tools
+RUN cd filecoin-signing-tools && cargo build --release --manifest-path service/Cargo.toml
 
 FROM ubuntu:18.04
 WORKDIR /opt/coin
