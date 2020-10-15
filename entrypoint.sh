@@ -7,7 +7,7 @@ if test $# -eq 0; then
   # generate lotus config.toml
   echo -e "[API]\nListenAddress=\"/ip4/0.0.0.0/tcp/1234/http\"" > $LOTUS_CONFIG
   echo -e "[Libp2p]\n[Pubsub]\n[Client]\n[Metrics]" >> $LOTUS_CONFIG
-  /opt/coin/lotus daemon &
+  /opt/coin/lotus daemon --config $LOTUS_CONFIG &
   /opt/coin/lotus wait-api
   # generate filecoin-service.toml
   JWT=`cat /root/.lotus/token`
