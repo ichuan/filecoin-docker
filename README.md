@@ -30,12 +30,14 @@ docker run -e IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.co
 
 # Importing snapshot
 
-<https://docs.filecoin.io/get-started/lotus/installation/#chain-sync>
+On the first run, you need to sync to the mainchain:
+
+<https://docs.filecoin.io/get-started/lotus/chain/#syncing>
 
 ```bash
-docker run --rm -it -v /data/blockchain/filecoin:/root/.lotus --entrypoint sh mixhq/filecoin
+docker run --rm -it -v /data/blockchain/filecoin:/root/.lotus --entrypoint bash mixhq/filecoin
 # then in container
-/opt/coin/lotus daemon --import-snapshot https://very-temporary-spacerace-chain-snapshot.s3.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car
+/opt/coin/lotus daemon --halt-after-import --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
 ```
 
 
