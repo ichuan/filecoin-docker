@@ -41,6 +41,15 @@ docker run --rm -it -v /data/blockchain/filecoin:/root/.lotus --entrypoint bash 
 ```
 
 
+# Only running filecoin-service
+
+Don't run the lotus node
+
+```bash
+docker run -e WITHOUT_NODE=1 -e LOTUS_ADDR=1.1.1.1:1234 -e LOTUS_TOKEN=THE_JWT_TOKEN --rm -itd --name fil -p 1234:1234 -p 3030:3030 -v `pwd`/data:/root/.lotus filecoin
+```
+
+
 # Using pre-built docker image
 
 Using automated build image from <https://hub.docker.com/r/mixhq/filecoin/>:
