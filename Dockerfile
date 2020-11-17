@@ -4,7 +4,7 @@ WORKDIR /opt
 RUN git clone https://github.com/Zondax/filecoin-signing-tools
 RUN cd filecoin-signing-tools && cargo build --release --manifest-path service/Cargo.toml
 # build lotus
-RUN apt update && apt install -y jq ocl-icd-opencl-dev
+RUN apt update && apt install -y jq ocl-icd-opencl-dev hwloc libhwloc-dev
 RUN wget -c https://dl.google.com/go/go1.14.7.linux-amd64.tar.gz -O - | tar -xz -C /usr/local
 RUN git clone https://github.com/filecoin-project/lotus.git
 WORKDIR /opt/lotus
@@ -13,7 +13,7 @@ RUN PATH="$PATH:/usr/local/go/bin" make clean all
 
 FROM ubuntu:18.04
 WORKDIR /opt/coin
-RUN apt update && apt install -y wget ocl-icd-opencl-dev libssl-dev netcat
+RUN apt update && apt install -y wget ocl-icd-opencl-dev libssl-dev netcat hwloc libhwloc-dev
 COPY --from=builder /opt/filecoin-signing-tools/target/release/filecoin-service /opt/coin/
 COPY --from=builder /opt/lotus/lotus /opt/coin/
 COPY ./entrypoint.sh /opt/
