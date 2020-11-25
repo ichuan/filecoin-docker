@@ -5,7 +5,7 @@ RUN git clone https://github.com/Zondax/filecoin-signing-tools
 RUN cd filecoin-signing-tools && cargo build --release --manifest-path service/Cargo.toml
 # build lotus
 RUN apt update && apt install -y jq ocl-icd-opencl-dev hwloc libhwloc-dev
-RUN wget -c https://dl.google.com/go/go1.14.7.linux-amd64.tar.gz -O - | tar -xz -C /usr/local
+RUN wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | tar -xz -C /usr/local
 RUN git clone https://github.com/filecoin-project/lotus.git
 WORKDIR /opt/lotus
 RUN git checkout v1.2.1
