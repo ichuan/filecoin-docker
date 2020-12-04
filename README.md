@@ -1,5 +1,5 @@
 # filecoin-docker
-Dockerfile for filecoin
+Dockerfile for filecoin (with filecoin-signing-tools inside).
 
 
 # Building
