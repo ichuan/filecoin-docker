@@ -2,7 +2,7 @@ FROM rust:latest AS builder
 WORKDIR /opt
 # build filecoin-service
 RUN git clone https://github.com/Zondax/filecoin-signing-tools
-RUN cd filecoin-signing-tools && cargo build --release --manifest-path service/Cargo.toml
+RUN cd filecoin-signing-tools && git checkout v0.11.0 && cargo build --release --manifest-path service/Cargo.toml
 # build lotus
 RUN apt update && apt install -y jq ocl-icd-opencl-dev hwloc libhwloc-dev
 RUN wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | tar -xz -C /usr/local
