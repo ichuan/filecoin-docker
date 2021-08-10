@@ -35,7 +35,7 @@ On the first run, you need to sync to the mainchain:
 <https://docs.filecoin.io/get-started/lotus/chain/#syncing>
 
 ```bash
-docker run --rm -it -v /data/blockchain/filecoin:/root/.lotus --entrypoint /opt/coin/lotus mixhq/filecoin daemon --halt-after-import --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
+docker run --rm -it -v /data/blockchain/filecoin:/root/.lotus --entrypoint /opt/coin/lotus wshub/filecoin daemon --halt-after-import --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
 ```
 
 
@@ -50,8 +50,8 @@ docker run -e WITHOUT_NODE=1 -e LOTUS_ADDR=1.1.1.1:1234 -e LOTUS_TOKEN=THE_JWT_T
 
 # Using pre-built docker image
 
-Using automated build image from <https://hub.docker.com/r/mixhq/filecoin/>:
+Using automated build image from <https://hub.docker.com/r/wshub/filecoin/>:
 
 ```bash
-docker run --rm -itd --name fil -p 1234:1234 -p 3030:3030 -v `pwd`/data:/root/.lotus mixhq/filecoin
+docker run --rm -itd --name fil -p 1234:1234 -p 3030:3030 -v `pwd`/data:/root/.lotus wshub/filecoin
 ```
