@@ -1,4 +1,4 @@
-FROM mixhq/filecoin-signing-tools AS fst_builder
+FROM wshub/filecoin-signing-tools AS fst_builder
 FROM rust:latest AS lotus_builder
 WORKDIR /opt
 RUN apt update && apt install -y jq ocl-icd-opencl-dev hwloc libhwloc-dev
